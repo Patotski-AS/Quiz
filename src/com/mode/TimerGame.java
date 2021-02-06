@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 public class TimerGame extends GameFrame {
 
 
+
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -54,9 +57,4 @@ public class TimerGame extends GameFrame {
             MainMenuFrame mainMenuFrame = new MainMenuFrame();
         }
     }
-
-
-
-
-
 }

@@ -15,7 +15,6 @@ import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
@@ -24,7 +23,7 @@ import java.util.List;
 
 public abstract class GameFrame implements ActionListener {
     protected final Settings settings = Settings.readSettings();
-    protected final Question[] questions = randomQuestions();
+    protected Question[] questions= randomQuestions();
 
     protected String answer;
     protected int index;
@@ -223,7 +222,7 @@ public abstract class GameFrame implements ActionListener {
 
     private void nextQuestion() {
 
-        if (index >= settings.getTotal_questions()) {
+        if (index >= settings.getTotal_questions()|| numberLives==0) {
             results();
         } else {
             textField.setText("Question " + (index + 1));
@@ -254,7 +253,7 @@ public abstract class GameFrame implements ActionListener {
         if (!questions[index].getCorrectAnswer().equals("D"))
             answer_labelD.setForeground(new Color(255, 0, 0));
 
-        Timer pause = new Timer(2000, e -> {
+        Timer pause = new Timer(1000, e -> {
 
             answer_labelA.setForeground(new Color(25, 255, 0));
             answer_labelB.setForeground(new Color(25, 255, 0));
@@ -264,10 +263,13 @@ public abstract class GameFrame implements ActionListener {
             answer = " ";
             seconds = settings.getSeconds();
             seconds_left.setText(String.valueOf(seconds));
+            lives_left.setText(String.valueOf(numberLives));
+
             buttonA.setEnabled(true);
             buttonB.setEnabled(true);
             buttonC.setEnabled(true);
             buttonD.setEnabled(true);
+
 
             index++;
             nextQuestion();
@@ -277,7 +279,6 @@ public abstract class GameFrame implements ActionListener {
     }
 
     public void results() {
-
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
         buttonC.setEnabled(false);

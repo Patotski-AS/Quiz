@@ -11,17 +11,15 @@ import java.awt.event.ActionEvent;
  * логика :
  * -игра на выживание - не правильно ответил - проиграл
  * -нужно ли добавлчть колисество жизней?
- *
+ * <p>
  * Вопросы выгружать из файла  в очередь в нужнои количестве
  * перемешать их и доствать с удалением
- *
- *
- * */
+ */
 
 
 public class SurvivalGame extends GameFrame {
-    private final Settings settings=super.settings;
-    private int numberLives=super.numberLives;
+    private final Settings settings = super.settings;
+    private int numberLives = super.numberLives;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -33,30 +31,34 @@ public class SurvivalGame extends GameFrame {
 
         if (e.getSource() == buttonA) {
             answer = "A";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
+            if (answer.equals(questions[index].getCorrectAnswer()))
                 correct_guesses++;
-            }
+            else super.numberLives--;
+
             displayAnswer();
         }
         if (e.getSource() == buttonB) {
             answer = "B";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
+            if (answer.equals(questions[index].getCorrectAnswer()))
                 correct_guesses++;
-            }
+            else super.numberLives--;
+
             displayAnswer();
         }
         if (e.getSource() == buttonC) {
             answer = "C";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
+            if (answer.equals(questions[index].getCorrectAnswer()))
                 correct_guesses++;
-            }
+            else super.numberLives--;
+
             displayAnswer();
         }
         if (e.getSource() == buttonD) {
             answer = "D";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
+            if (answer.equals(questions[index].getCorrectAnswer()))
                 correct_guesses++;
-            }
+            else super.numberLives--;
+
             displayAnswer();
         }
 
