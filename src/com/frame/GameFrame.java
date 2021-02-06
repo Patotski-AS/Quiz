@@ -3,54 +3,49 @@ package com.frame;
 
 // ---------------------------- Quiz ----------------------------
 
-/**
- * GameFrame
+/**GameFrame
  * убрать из класса все лишнее
  * перемеслить не стандартную логику игры в классы-наследники
- */
-//
+ * */
+
 import com.quiz.Question;
 import com.quiz.Scores;
 import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.List;
 
-public class GameFrame implements ActionListener {
-    private final Settings settings = Settings.readSettings();
-    private final Question[] questions = randomQuestions();
+public abstract class GameFrame implements ActionListener {
+    protected final Settings settings = Settings.readSettings();
+    protected final Question[] questions = randomQuestions();
 
+    protected String answer;
+    protected int index;
+    protected int correct_guesses = 0;
+    protected int seconds = settings.getSeconds();
+    protected int numberLives=settings.getNumberLives();
 
-    private String answer;
-    private int index;
-    private int correct_guesses = 0;
-    protected int numberLives = settings.getNumberLives();
-    private int seconds = settings.getSeconds();
-
-
-    private final JFrame frame = new JFrame();
-    private final JTextField textField = new JTextField();
-    private final JTextArea textarea = new JTextArea();
-    private final JButton buttonA = new JButton();
-    private final JButton buttonB = new JButton();
-    private final JButton buttonC = new JButton();
-    private final JButton buttonD = new JButton();
-    private final JButton buttonRepeat = new JButton();
-    private final JButton buttonToMenu = new JButton();
-    private final JLabel answer_labelA = new JLabel();
-    private final JLabel answer_labelB = new JLabel();
-    private final JLabel answer_labelC = new JLabel();
-    private final JLabel answer_labelD = new JLabel();
-    private final JLabel seconds_left = new JLabel();
-    private final JLabel lives_left = new JLabel();
-    private final JTextField number_right = new JTextField();
-    private final JTextField percentage = new JTextField();
+    protected final JFrame frame = new JFrame();
+    protected final JTextField textField = new JTextField();
+    protected final JTextArea textarea = new JTextArea();
+    protected final JButton buttonA = new JButton();
+    protected final JButton buttonB = new JButton();
+    protected final JButton buttonC = new JButton();
+    protected final JButton buttonD = new JButton();
+    protected final JButton buttonRepeat = new JButton();
+    protected final JButton buttonToMenu = new JButton();
+    protected final JLabel answer_labelA = new JLabel();
+    protected final JLabel answer_labelB = new JLabel();
+    protected final JLabel answer_labelC = new JLabel();
+    protected final JLabel answer_labelD = new JLabel();
+    protected final JLabel seconds_left = new JLabel();
+    protected final JTextField number_right = new JTextField();
+    protected final JTextField percentage = new JTextField();
 
     private final Timer timer = new Timer(1000, e -> {
         seconds--;
@@ -163,15 +158,6 @@ public class GameFrame implements ActionListener {
         seconds_left.setOpaque(true);
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
         seconds_left.setText(String.valueOf(seconds));
-//
-        lives_left.setBounds(535, 140, 100, 100);
-        lives_left.setBackground(new Color(25, 25, 25));
-        lives_left.setForeground(new Color(255, 0, 0));
-        lives_left.setFont(new Font("Ink Free", Font.BOLD, 60));
-        lives_left.setBorder(BorderFactory.createBevelBorder(1));
-        lives_left.setOpaque(true);
-        lives_left.setHorizontalAlignment(JTextField.CENTER);
-        lives_left.setText(String.valueOf(numberLives));
 
         JLabel time_label = new JLabel();
         time_label.setBounds(535, 475, 100, 25);
@@ -211,7 +197,6 @@ public class GameFrame implements ActionListener {
         frame.add(buttonToMenu);
         frame.add(textarea);
         frame.add(textField);
-        frame.add(lives_left);
         frame.setVisible(true);
 
         buttonToMenu.setEnabled(false);
@@ -223,7 +208,6 @@ public class GameFrame implements ActionListener {
     }
 
     private void nextQuestion() {
-
         if (index >= settings.getTotal_questions()) {
             results();
         } else {
@@ -234,54 +218,6 @@ public class GameFrame implements ActionListener {
             answer_labelC.setText(questions[index].getAnswerOptions()[2]);
             answer_labelD.setText(questions[index].getAnswerOptions()[3]);
             timer.start();
-        }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
-
-        if (e.getSource() == buttonA) {
-            answer = "A";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
-                correct_guesses++;
-            }
-            displayAnswer();
-        }
-        if (e.getSource() == buttonB) {
-            answer = "B";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
-                correct_guesses++;
-            }
-            displayAnswer();
-        }
-        if (e.getSource() == buttonC) {
-            answer = "C";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
-                correct_guesses++;
-            }
-            displayAnswer();
-        }
-        if (e.getSource() == buttonD) {
-            answer = "D";
-            if (answer.equals(questions[index].getCorrectAnswer())) {
-                correct_guesses++;
-            }
-            displayAnswer();
-        }
-
-
-        if (e.getSource() == buttonRepeat) {
-            frame.dispose();
-            GameFrame gameFrame = new GameFrame();
-        }
-        if (e.getSource() == buttonToMenu) {
-            frame.dispose();
-            MainMenuFrame mainMenuFrame = new MainMenuFrame();
         }
     }
 
@@ -351,6 +287,6 @@ public class GameFrame implements ActionListener {
         frame.add(number_right);
         frame.add(percentage);
 
-        Settings.scoresWriter(new Scores(settings.getName(), "", correct_guesses * 100));
+        Settings.scoresWriter(new Scores(settings.getName(),"",correct_guesses*100));
     }
 }
