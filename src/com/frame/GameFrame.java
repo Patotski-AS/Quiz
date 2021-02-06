@@ -8,6 +8,8 @@ package com.frame;
  * перемеслить не стандартную логику игры в классы-наследники
  * */
 
+
+
 import com.quiz.Question;
 import com.quiz.Scores;
 import com.quiz.Settings;
