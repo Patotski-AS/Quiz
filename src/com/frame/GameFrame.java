@@ -7,7 +7,7 @@ package com.frame;
  * GameFrame
  * убрать из класса все лишнее
  * перемеслить не стандартную логику игры в классы-наследники
- * */
+ */
 
 import com.quiz.Question;
 import com.quiz.Scores;
@@ -15,6 +15,7 @@ import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
@@ -49,6 +50,8 @@ public abstract class GameFrame implements ActionListener {
     protected final JTextField percentage = new JTextField();
     protected final JLabel lives_left = new JLabel();
 
+    @Override
+   public abstract void actionPerformed(ActionEvent e);
 
     private final Timer timer = new Timer(1000, e -> {
         seconds--;

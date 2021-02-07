@@ -7,10 +7,6 @@ import java.awt.event.ActionEvent;
 
 public class TimerGame extends GameFrame {
 
-
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
 

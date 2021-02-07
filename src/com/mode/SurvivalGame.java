@@ -2,7 +2,6 @@ package com.mode;
 
 import com.frame.GameFrame;
 import com.frame.MainMenuFrame;
-import com.quiz.Settings;
 
 import java.awt.event.ActionEvent;
 
@@ -18,8 +17,6 @@ import java.awt.event.ActionEvent;
 
 
 public class SurvivalGame extends GameFrame {
-    private final Settings settings = super.settings;
-    private int numberLives = super.numberLives;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -31,37 +28,37 @@ public class SurvivalGame extends GameFrame {
 
         if (e.getSource() == buttonA) {
             answer = "A";
-            if (answer.equals(questions[index].getCorrectAnswer()))
+            if (answer.equals(questions[index].getCorrectAnswer())) {
+                numberLives--;
                 correct_guesses++;
-            else super.numberLives--;
+            }
 
             displayAnswer();
         }
         if (e.getSource() == buttonB) {
             answer = "B";
-            if (answer.equals(questions[index].getCorrectAnswer()))
+            if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            else super.numberLives--;
+            }
 
             displayAnswer();
         }
         if (e.getSource() == buttonC) {
             answer = "C";
-            if (answer.equals(questions[index].getCorrectAnswer()))
+            if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            else super.numberLives--;
+            }
 
             displayAnswer();
         }
         if (e.getSource() == buttonD) {
             answer = "D";
-            if (answer.equals(questions[index].getCorrectAnswer()))
+            if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            else super.numberLives--;
+            }
 
             displayAnswer();
         }
-
 
         if (e.getSource() == buttonRepeat) {
             frame.dispose();

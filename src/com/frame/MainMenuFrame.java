@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 
 public class MainMenuFrame extends JFrame implements ActionListener {
     private final Settings settings = Settings.readSettings();
@@ -75,10 +74,10 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         if (e.getSource() == buttonA) {
             switch (settings.getModeGame()) {
                 case ("Timer"):
-                    GameFrame timerGame = new TimerGame();
+                    TimerGame timerGame = new TimerGame();
                     break;
                 case ("Survival"):
-                    GameFrame survivalGame = new SurvivalGame();
+                    SurvivalGame survivalGame = new SurvivalGame();
                     break;
             }
 
