@@ -1,4 +1,4 @@
-package com.quiz;
+package com.tools;
 
 import java.util.Arrays;
 import java.util.Objects;

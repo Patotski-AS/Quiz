@@ -2,7 +2,7 @@ package com.frame;
 
 import com.mode.SurvivalGame;
 import com.mode.TimerGame;
-import com.quiz.Settings;
+import com.tools.Settings;
 
 import javax.swing.*;
 import java.awt.*;

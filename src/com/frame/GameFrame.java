@@ -4,9 +4,9 @@ package com.frame;
 // ---------------------------- Quiz ----------------------------
 
 import com.mode.SurvivalGame;
-import com.quiz.Question;
-import com.quiz.Scores;
-import com.quiz.Settings;
+import com.tools.Question;
+import com.tools.Scores;
+import com.tools.Settings;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -54,7 +54,7 @@ public abstract class GameFrame implements ActionListener {
 
     private final Timer timer = new Timer(1000, e -> {
         seconds--;
-        seconds_left.setText("Time left: " + String.valueOf(seconds));
+        seconds_left.setText("Time left: " + seconds);
         if (seconds <= 0) {
             displayAnswer();
         }
@@ -195,7 +195,7 @@ public abstract class GameFrame implements ActionListener {
         lives_left.setBorder(BorderFactory.createBevelBorder(1));
         lives_left.setOpaque(true);
         lives_left.setHorizontalAlignment(JTextField.CENTER);
-        lives_left.setText("LIVES: " + String.valueOf(numberLives));
+        lives_left.setText("LIVES: " + numberLives);
 
 
         JLabel time_label = new JLabel();
@@ -286,14 +286,12 @@ public abstract class GameFrame implements ActionListener {
             answer_labelB.setForeground(new Color(25, 255, 0));
             answer_labelC.setForeground(new Color(25, 255, 0));
             answer_labelD.setForeground(new Color(25, 255, 0));
-
             answer = " ";
+
             seconds = settings.getSeconds();
+            seconds_left.setText("Time left: " + seconds);
 
-            seconds_left.setText("Time left: " + String.valueOf(seconds));
-
-            lives_left.setText("LIVES: " + String.valueOf(numberLives));
-
+            lives_left.setText("LIVES: " + numberLives);
 
             buttonA.setEnabled(true);
             buttonB.setEnabled(true);

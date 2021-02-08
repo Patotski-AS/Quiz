@@ -1,4 +1,4 @@
-package com.quiz;
+package com.tools;
 
 import com.frame.MainMenuFrame;
 

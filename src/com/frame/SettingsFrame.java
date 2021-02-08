@@ -1,6 +1,6 @@
 package com.frame;
 
-import com.quiz.Settings;
+import com.tools.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -188,10 +188,9 @@ public class SettingsFrame extends JFrame implements ActionListener {
         if (e.getSource() == themeChoose) {
             if (Objects.requireNonNull(themeChoose.getSelectedItem()).equals("JAVA"))
                 settings.setFileQuestion("JAVA.json");
-
-            if (themeChoose.getSelectedItem().equals("JAVA-1"))
+            else if (themeChoose.getSelectedItem().equals("JAVA-1"))
                 settings.setFileQuestion("JAVA-1.json");
-            if (themeChoose.getSelectedItem().equals("TEST"))
+            else if (themeChoose.getSelectedItem().equals("TEST"))
                 settings.setFileQuestion("TEST.json");
 
             // сохраняем в файл наш выбор темы

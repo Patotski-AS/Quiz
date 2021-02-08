@@ -1,7 +1,7 @@
 package com.frame;
 
-import com.quiz.Scores;
-import com.quiz.Settings;
+import com.tools.Scores;
+import com.tools.Settings;
 
 import javax.swing.*;
 import java.awt.*;
