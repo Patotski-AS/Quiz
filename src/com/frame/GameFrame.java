@@ -97,12 +97,11 @@ public abstract class GameFrame implements ActionListener {
         doc.setParagraphAttributes(10, doc.getLength() - 1, center, false);
 
         JButton[] jButtons = {buttonA, buttonB, buttonC, buttonD};
-for (JButton j: jButtons)
-{
-    j.setBackground(new Color(170, 66, 66));
-    j.setForeground(new Color(219, 206, 206));
+        for (JButton j : jButtons) {
+            j.setBackground(new Color(170, 66, 66));
+            j.setForeground(new Color(219, 206, 206));
 
-}
+        }
         buttonA.setBounds(10, 150, 100, 100);
         buttonA.setFont(new Font("Courier", Font.BOLD, 25));
         buttonA.setFocusable(false);
@@ -146,7 +145,6 @@ for (JButton j: jButtons)
         buttonToMenu.setText("Back to Menu");
         buttonToMenu.setBackground(new Color(170, 66, 66));
         buttonToMenu.setForeground(new Color(219, 206, 206));
-
 
 
         answer_labelA.setBounds(125, 150, 500, 99);
@@ -197,7 +195,7 @@ for (JButton j: jButtons)
         lives_left.setBorder(BorderFactory.createBevelBorder(1));
         lives_left.setOpaque(true);
         lives_left.setHorizontalAlignment(JTextField.CENTER);
-        lives_left.setText("LIVES: " +String.valueOf(numberLives));
+        lives_left.setText("LIVES: " + String.valueOf(numberLives));
 
 
         JLabel time_label = new JLabel();
@@ -294,7 +292,7 @@ for (JButton j: jButtons)
 
             seconds_left.setText("Time left: " + String.valueOf(seconds));
 
-            lives_left.setText("LIVES: "+ String.valueOf(numberLives));
+            lives_left.setText("LIVES: " + String.valueOf(numberLives));
 
 
             buttonA.setEnabled(true);
@@ -309,12 +307,13 @@ for (JButton j: jButtons)
         pause.start();
     }
 
-    public void results() {
-
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
+    private void results() {
+        seconds_left.setVisible(false);
+        lives_left.setVisible(false);
+        buttonA.setVisible(false);
+        buttonB.setVisible(false);
+        buttonC.setVisible(false);
+        buttonD.setVisible(false);
         buttonToMenu.setEnabled(true);
         buttonRepeat.setEnabled(true);
         buttonRepeat.setVisible(true);
@@ -323,11 +322,26 @@ for (JButton j: jButtons)
         int result = (int) ((correct_guesses / (double) settings.getTotal_questions()) * 100);
 
         textField.setText("RESULTS!");
-        textarea.setText("");
-        answer_labelA.setText("");
-        answer_labelB.setText("");
-        answer_labelC.setText("");
-        answer_labelD.setText("");
+        textarea.setFont(new Font("Courier", Font.BOLD, 30));
+
+        if (result == 100)
+            textarea.setText("ГЕНИАЛЬНО");
+        else if (result < 100 && result > 80)
+            textarea.setText("ПОЧТИ");
+        else if (result < 80 && result > 50)
+            textarea.setText("НЕ ПЛОХАЯ ПОПЫТКА");
+        else if (result < 50 && result > 30)
+            textarea.setText("МОЖНО БЫЛО И ЛУЧШЕ");
+        else if (result < 30 && result > 0)
+            textarea.setText("ПОПРОБУЙ ЕЩЕ РАЗ");
+        else
+            textarea.setText("ВОТ ЭТО ТОЧНО РЕКОРД");
+
+        answer_labelA.setVisible(false);
+        answer_labelB.setVisible(false);
+        answer_labelC.setVisible(false);
+        answer_labelD.setVisible(false);
+
 
         number_right.setText("(" + correct_guesses + "/" + settings.getTotal_questions() + ")");
         percentage.setText(result + "%");
@@ -337,4 +351,5 @@ for (JButton j: jButtons)
 
         Settings.scoresWriter(new Scores(settings.getName(), "", correct_guesses * 100));
     }
+
 }

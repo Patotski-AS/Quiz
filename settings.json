@@ -1,8 +1,8 @@
 {
-  "name" : "12234",
-  "total_questions" : 10,
-  "seconds" : 5,
+  "name" : "Enter name",
+  "total_questions" : 5,
+  "seconds" : 40,
   "fileQuestion" : "JAVA.json",
-  "modeGame" : "Survival",
-  "numberLives" : 0
+  "modeGame" : "Timer",
+  "numberLives" : 2
 }
