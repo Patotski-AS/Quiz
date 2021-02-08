@@ -3,19 +3,19 @@
   "answer" : "",
   "score" : 1000
 }, {
+  "name" : "12234",
+  "answer" : "",
+  "score" : 1000
+}, {
   "name" : "Андрей",
   "answer" : "",
   "score" : 500
 }, {
-  "name" : "нпро",
+  "name" : "Enter name",
   "answer" : "",
-  "score" : 200
+  "score" : 500
 }, {
-  "name" : "Вася",
-  "answer" : "Ответ",
-  "score" : 15
-}, {
-  "name" : "Маша",
-  "answer" : "Ответ",
-  "score" : 10
+  "name" : "Enter name",
+  "answer" : "",
+  "score" : 400
 } ]

@@ -40,10 +40,12 @@ public abstract class GameFrame implements ActionListener {
     protected final JButton buttonD = new JButton();
     protected final JButton buttonRepeat = new JButton();
     protected final JButton buttonToMenu = new JButton();
+
     protected final JTextArea answer_labelA = new JTextArea();
     protected final JTextArea answer_labelB = new JTextArea();
     protected final JTextArea answer_labelC = new JTextArea();
     protected final JTextArea answer_labelD = new JTextArea();
+
     protected final JLabel seconds_left = new JLabel();
     protected final JTextField number_right = new JTextField();
     protected final JTextField percentage = new JTextField();
@@ -125,7 +127,9 @@ for (JButton j: jButtons)
         buttonD.addActionListener(this);
         buttonD.setText("D");
 
+
         buttonRepeat.setBounds(100, 550, 200, 50);
+
         buttonRepeat.setFont(new Font("Courier", Font.BOLD, 25));
         buttonRepeat.setFocusable(false);
         buttonRepeat.addActionListener(this);
@@ -133,13 +137,16 @@ for (JButton j: jButtons)
         buttonRepeat.setBackground(new Color(170, 66, 66));
         buttonRepeat.setForeground(new Color(219, 206, 206));
 
+
         buttonToMenu.setBounds(325, 550, 200, 50);
+
         buttonToMenu.setFont(new Font("Courier", Font.BOLD, 25));
         buttonToMenu.setFocusable(false);
         buttonToMenu.addActionListener(this);
         buttonToMenu.setText("Back to Menu");
         buttonToMenu.setBackground(new Color(170, 66, 66));
         buttonToMenu.setForeground(new Color(219, 206, 206));
+
 
 
         answer_labelA.setBounds(125, 150, 500, 99);
@@ -182,6 +189,7 @@ for (JButton j: jButtons)
 
 
         lives_left.setVisible(this instanceof SurvivalGame);
+
         lives_left.setBounds(50, 550, 150, 50);
         lives_left.setBackground(new Color(25, 25, 25));
         lives_left.setForeground(new Color(255, 0, 0));
@@ -190,6 +198,7 @@ for (JButton j: jButtons)
         lives_left.setOpaque(true);
         lives_left.setHorizontalAlignment(JTextField.CENTER);
         lives_left.setText("LIVES: " +String.valueOf(numberLives));
+
 
         JLabel time_label = new JLabel();
         time_label.setBounds(535, 475, 100, 25);
@@ -282,9 +291,11 @@ for (JButton j: jButtons)
 
             answer = " ";
             seconds = settings.getSeconds();
+
             seconds_left.setText("Time left: " + String.valueOf(seconds));
 
             lives_left.setText("LIVES: "+ String.valueOf(numberLives));
+
 
             buttonA.setEnabled(true);
             buttonB.setEnabled(true);

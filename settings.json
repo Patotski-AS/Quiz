@@ -1,6 +1,8 @@
 {
-  "name" : "qwwee",
+  "name" : "12234",
   "total_questions" : 10,
-  "seconds" : 10,
-  "fileQuestion" : "questions.json"
+  "seconds" : 5,
+  "fileQuestion" : "JAVA.json",
+  "modeGame" : "Survival",
+  "numberLives" : 0
 }

@@ -16,10 +16,13 @@ import java.util.stream.Collectors;
 public class Settings {
     private String name = "Name";
     private int total_questions = 5;
-    private final int seconds = 10;
+    private int seconds = 10;
     private String fileQuestion = "questions.json";
     private static final File fileSettings = new File("settings.json");
     private static final File fileScores = new File("score.json");
+    private String modeGame = "Timer";
+    private int numberLives = 2;
+
 
     public Settings(String name, int total_questions) {
         this.name = name;
@@ -32,9 +35,10 @@ public class Settings {
     // запись заработанных очков
     public static void scoresWriter(Scores score) {
         List<Scores> scores = scoresReader();
+        assert scores != null;
         scores.add(score);
         scores = scores.stream()
-                .sorted((o1, o2) -> o2.getScore()-o1.getScore())
+                .sorted((o1, o2) -> o2.getScore() - o1.getScore())
                 .limit(5)
                 .collect(Collectors.toCollection(LinkedList::new));
         ObjectMapper objectMapper = new ObjectMapper();
@@ -133,6 +137,11 @@ public class Settings {
         return seconds;
     }
 
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+
     public String getFileQuestion() {
         return fileQuestion;
     }
@@ -145,5 +154,19 @@ public class Settings {
         return fileSettings;
     }
 
+    public String getModeGame() {
+        return modeGame;
+    }
 
+    public void setModeGame(String modeGame) {
+        this.modeGame = modeGame;
+    }
+
+    public int getNumberLives() {
+        return numberLives;
+    }
+
+    public void setNumberLives(int numberLives) {
+        this.numberLives = numberLives;
+    }
 }

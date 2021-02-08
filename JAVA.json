@@ -1,0 +1,101 @@
+[ {
+  "question" : "Чем является следующее выражение – int m[] [] = new int [5] [5];",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "Массивом", "Списком", "Очередью", "Многомерным массивом" ]
+}, {
+  "question" : "Переменные созданные в самом классе называются:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "Лугами", "Лесами", "Полями ", "Дровами" ]
+}, {
+  "question" : "Какие есть модификаторы доступа:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "Private", "Public", "Protected", "Все варианты верны" ]
+}, {
+  "question" : "Какой стандартный метод, позволяет изменить Private int x переменную:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "getX();", "setX();", "add();", "zyX();" ]
+}, {
+  "question" : "Что бы создать объект класса необходимо воспользоваться оператором:",
+  "correctAnswer" : "A",
+  "answerOptions" : [ "New", "Now", "On", "Var" ]
+}, {
+  "question" : "Для выполнения операций, необходимых для создания класса, в Java используют:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "Пластилин", "Хорошее настроение", "Конструктор", "Редуктор" ]
+}, {
+  "question" : "Какое возвращаемое значение должен иметь конструктор:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "Void", "Int", "String", "Не должен иметь возвращаемое значение" ]
+}, {
+  "question" : "Если необходимо, что бы все объекты класса пользовались одним свойством или одним методом, их следует объявить с помощью ключевого слова:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "Finalize", "Static", "This", "Count" ]
+}, {
+  "question" : "Если необходимо, что бы свойство класс не могло изменить своего значения, его следует объявить с помощью ключевого слова:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "Finalize", "Final", "Static", "This" ]
+}, {
+  "question" : "Для ввода с консоли можно использовать стандартный класс Scanner, какой метод не имеет данный класс:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "next()", "nextBoolean()", "nextLine()", "nextRandom()" ]
+}, {
+  "question" : "Для работы с математическими функциями используется класс Math, что из следующего, не относится к данному классу:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "Math.log()", "Math.PI", "Все варианты верны", "Math.exp()" ]
+}, {
+  "question" : "Что из перечисленного не является классом-обёрткой:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "Double", "Integer", "Boolean ", "Short" ]
+}, {
+  "question" : "Любая строка в языке Java является объектом класса:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "Char", "String ", "Boolean", "Integer" ]
+}, {
+  "question" : "char x = “Hello World”.charAt(5);  какое значение попадёт в переменную x?",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "‘l’", "‘o’", "‘ ‘ (пробел)", "Ничего не попадёт, метод записан не верно" ]
+}, {
+  "question" : "Что не является примитивным типом в Java:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "int", "char", "String ", "boolean " ]
+}, {
+  "question" : "Что из нижеперечисленного необходимо использовать для сравнения строк:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "==", "=", "Метод compareTo", "Ни один из способов не подходит для строк" ]
+}, {
+  "question" : "В тексте необходимо найти отрицательные и положительные цифры, какая запись регулярных выражений нам подойдёт:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "-?[0123456789]+", "-?[0-9]+", "-?\\d+", "Все варианты являются верными" ]
+}, {
+  "question" : "Что делает метод Split():",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "Запускает песню группы Сплин", "Разрезает строку на части, и возвращает массив", "Удаляет строку", "Я томат" ]
+}, {
+  "question" : "Класс Pattern служит для хранения:",
+  "correctAnswer" : "A",
+  "answerOptions" : [ "Регулярного выражения", "Класса Matcher", "Класса Math", "Бабушкиных заготовок на зиму" ]
+}, {
+  "question" : "При создании класса, наследующегося от родительского, необходимо указать после названия слово:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "implements", "extends", "static", "interface" ]
+}, {
+  "question" : "Как запретить наследование от класса в Java? Необходимо при создании, перед словом class указать модификатор:",
+  "correctAnswer" : "C",
+  "answerOptions" : [ "Private", "Protected", "Final", "Extends" ]
+}, {
+  "question" : "После создания интерфейса на его основе может быть создан класс с использованием слова:",
+  "correctAnswer" : "A",
+  "answerOptions" : [ "Implements ", "Interface", "Extends", "Все варианты верны" ]
+}, {
+  "question" : "Сколько типов вложенных классов присутствует в Java:",
+  "correctAnswer" : "B",
+  "answerOptions" : [ "3", "4", "5", "Вложенные классы в Java отсутствуют" ]
+}, {
+  "question" : "Какие скобки используются для создания дженериков:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "{ }", "[ ]", "( )", "< >" ]
+}, {
+  "question" : "Какая коллекция для динамических структур данных есть в Java:",
+  "correctAnswer" : "D",
+  "answerOptions" : [ "List", "Set", "Map", "Все варианты верны" ]
+}]
