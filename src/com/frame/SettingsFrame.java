@@ -38,7 +38,9 @@ public class SettingsFrame extends JFrame implements ActionListener {
         frame.setVisible(true);
 
         //определить перечень тем
-        String[] themes = {"JAVA", "JAVA-1", "Test"};
+
+        String[] themes = {"JAVA", "JAVA-1", "TEST"};
+
         themeChoose = new JComboBox<>(themes);
         themeChoose.setFont(new Font("Courier", Font.BOLD, 25));
         themeChoose.setBackground(new Color(219, 206, 206));
@@ -186,10 +188,12 @@ public class SettingsFrame extends JFrame implements ActionListener {
         if (e.getSource() == themeChoose) {
             if (Objects.requireNonNull(themeChoose.getSelectedItem()).equals("JAVA"))
                 settings.setFileQuestion("JAVA.json");
-            if (themeChoose.getSelectedItem().equals("SCIENCE"))
-                settings.setFileQuestion("questions.json");
+
             if (themeChoose.getSelectedItem().equals("JAVA-1"))
                 settings.setFileQuestion("JAVA-1.json");
+            if (themeChoose.getSelectedItem().equals("TEST"))
+                settings.setFileQuestion("TEST.json");
+
             // сохраняем в файл наш выбор темы
         }
         if (e.getSource() == questionsCountChoose) {

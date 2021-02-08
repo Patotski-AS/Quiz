@@ -40,10 +40,12 @@ public abstract class GameFrame implements ActionListener {
     protected final JButton buttonD = new JButton();
     protected final JButton buttonRepeat = new JButton();
     protected final JButton buttonToMenu = new JButton();
-    protected final JLabel answer_labelA = new JLabel();
-    protected final JLabel answer_labelB = new JLabel();
-    protected final JLabel answer_labelC = new JLabel();
-    protected final JLabel answer_labelD = new JLabel();
+
+    protected final JTextArea answer_labelA = new JTextArea();
+    protected final JTextArea answer_labelB = new JTextArea();
+    protected final JTextArea answer_labelC = new JTextArea();
+    protected final JTextArea answer_labelD = new JTextArea();
+
     protected final JLabel seconds_left = new JLabel();
     protected final JTextField number_right = new JTextField();
     protected final JTextField percentage = new JTextField();
@@ -52,7 +54,7 @@ public abstract class GameFrame implements ActionListener {
 
     private final Timer timer = new Timer(1000, e -> {
         seconds--;
-        seconds_left.setText(String.valueOf(seconds));
+        seconds_left.setText("Time left: " + String.valueOf(seconds));
         if (seconds <= 0) {
             displayAnswer();
         }
@@ -125,7 +127,9 @@ for (JButton j: jButtons)
         buttonD.addActionListener(this);
         buttonD.setText("D");
 
-        buttonRepeat.setBounds(225, 490, 200, 50);
+
+        buttonRepeat.setBounds(100, 550, 200, 50);
+
         buttonRepeat.setFont(new Font("Courier", Font.BOLD, 25));
         buttonRepeat.setFocusable(false);
         buttonRepeat.addActionListener(this);
@@ -133,7 +137,9 @@ for (JButton j: jButtons)
         buttonRepeat.setBackground(new Color(170, 66, 66));
         buttonRepeat.setForeground(new Color(219, 206, 206));
 
-        buttonToMenu.setBounds(225, 550, 200, 50);
+
+        buttonToMenu.setBounds(325, 550, 200, 50);
+
         buttonToMenu.setFont(new Font("Courier", Font.BOLD, 25));
         buttonToMenu.setFocusable(false);
         buttonToMenu.addActionListener(this);
@@ -142,30 +148,40 @@ for (JButton j: jButtons)
         buttonToMenu.setForeground(new Color(219, 206, 206));
 
 
-        answer_labelA.setBounds(125, 150, 500, 100);
-        answer_labelA.setBackground(new Color(50, 50, 50));
-        answer_labelA.setForeground(new Color(219, 206, 206));
-        answer_labelA.setFont(new Font("Courier", Font.PLAIN, 25));
 
-        answer_labelB.setBounds(125, 250, 500, 100);
-        answer_labelB.setBackground(new Color(50, 50, 50));
-        answer_labelB.setForeground(new Color(219, 206, 206));
-        answer_labelB.setFont(new Font("Courier", Font.PLAIN, 25));
+        answer_labelA.setBounds(125, 150, 500, 99);
+        answer_labelA.setBackground(new Color(68, 67, 67));
+        answer_labelA.setForeground(new Color(25, 255, 0));
+        answer_labelA.setFont(new Font("Courier", Font.PLAIN, 15));
+        answer_labelA.setLineWrap(true);
+        answer_labelA.setWrapStyleWord(true);
 
-        answer_labelC.setBounds(125, 350, 500, 100);
-        answer_labelC.setBackground(new Color(50, 50, 50));
-        answer_labelC.setForeground(new Color(219, 206, 206));
-        answer_labelC.setFont(new Font("Courier", Font.PLAIN, 25));
+        answer_labelB.setBounds(125, 250, 500, 99);
+        answer_labelB.setBackground(new Color(68, 67, 67));
+        answer_labelB.setForeground(new Color(25, 255, 0));
+        answer_labelB.setFont(new Font("Courier", Font.PLAIN, 15));
+        answer_labelB.setLineWrap(true);
+        answer_labelB.setWrapStyleWord(true);
 
-        answer_labelD.setBounds(125, 450, 500, 100);
-        answer_labelD.setBackground(new Color(50, 50, 50));
-        answer_labelD.setForeground(new Color(219, 206, 206));
-        answer_labelD.setFont(new Font("Courier", Font.PLAIN, 25));
 
-        seconds_left.setBounds(535, 510, 100, 100);
+        answer_labelC.setBounds(125, 350, 500, 99);
+        answer_labelC.setBackground(new Color(68, 67, 67));
+        answer_labelC.setForeground(new Color(25, 255, 0));
+        answer_labelC.setFont(new Font("Courier", Font.PLAIN, 15));
+        answer_labelC.setLineWrap(true);
+        answer_labelC.setWrapStyleWord(true);
+
+        answer_labelD.setBounds(125, 450, 500, 99);
+        answer_labelD.setBackground(new Color(68, 67, 67));
+        answer_labelD.setForeground(new Color(25, 255, 0));
+        answer_labelD.setFont(new Font("Courier", Font.PLAIN, 15));
+        answer_labelD.setLineWrap(true);
+        answer_labelD.setWrapStyleWord(true);
+
+        seconds_left.setBounds(450, 550, 150, 50);
         seconds_left.setBackground(new Color(25, 25, 25));
         seconds_left.setForeground(new Color(255, 0, 0));
-        seconds_left.setFont(new Font("Courier", Font.BOLD, 60));
+        seconds_left.setFont(new Font("Courier", Font.BOLD, 15));
         seconds_left.setBorder(BorderFactory.createBevelBorder(1));
         seconds_left.setOpaque(true);
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
@@ -173,14 +189,16 @@ for (JButton j: jButtons)
 
 
         lives_left.setVisible(this instanceof SurvivalGame);
-        lives_left.setBounds(535, 140, 100, 100);
+
+        lives_left.setBounds(50, 550, 150, 50);
         lives_left.setBackground(new Color(25, 25, 25));
         lives_left.setForeground(new Color(255, 0, 0));
-        lives_left.setFont(new Font("Courier", Font.BOLD, 60));
+        lives_left.setFont(new Font("Courier", Font.BOLD, 15));
         lives_left.setBorder(BorderFactory.createBevelBorder(1));
         lives_left.setOpaque(true);
         lives_left.setHorizontalAlignment(JTextField.CENTER);
-        lives_left.setText(String.valueOf(numberLives));
+        lives_left.setText("LIVES: " +String.valueOf(numberLives));
+
 
         JLabel time_label = new JLabel();
         time_label.setBounds(535, 475, 100, 25);
@@ -188,7 +206,7 @@ for (JButton j: jButtons)
         time_label.setForeground(new Color(255, 0, 0));
         time_label.setFont(new Font("Courier", Font.PLAIN, 16));
         time_label.setHorizontalAlignment(JTextField.CENTER);
-        time_label.setText("timer >:D");
+
 
         number_right.setBounds(225, 225, 200, 100);
         number_right.setBackground(new Color(219, 206, 206));
@@ -273,9 +291,11 @@ for (JButton j: jButtons)
 
             answer = " ";
             seconds = settings.getSeconds();
-            seconds_left.setText(String.valueOf(seconds));
 
-            lives_left.setText(String.valueOf(numberLives));
+            seconds_left.setText("Time left: " + String.valueOf(seconds));
+
+            lives_left.setText("LIVES: "+ String.valueOf(numberLives));
+
 
             buttonA.setEnabled(true);
             buttonB.setEnabled(true);
