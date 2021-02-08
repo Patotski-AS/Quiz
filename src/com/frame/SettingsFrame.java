@@ -38,7 +38,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         frame.setVisible(true);
 
         //определить перечень тем
-        String[] themes = {"SPORT", "SCIENCE", "JAVA"};
+        String[] themes = {"JAVA", "JAVA-1", "Test"};
         themeChoose = new JComboBox<>(themes);
         themeChoose.setFont(new Font("Courier", Font.BOLD, 25));
         themeChoose.setBackground(new Color(219, 206, 206));
@@ -79,7 +79,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         buttonGroupDifficulty.add(button_Hard);
 
         //определить кол-во вопросов
-        String[] count = {"5", "10", "15", "20", "25"};
+        String[] count = {"5", "10", "15", "20"};
         questionsCountChoose = new JComboBox<>(count);
         questionsCountChoose.setFont(new Font("Courier", Font.BOLD, 25));
         questionsCountChoose.setBackground(new Color(219, 206, 206));
@@ -188,8 +188,8 @@ public class SettingsFrame extends JFrame implements ActionListener {
                 settings.setFileQuestion("JAVA.json");
             if (themeChoose.getSelectedItem().equals("SCIENCE"))
                 settings.setFileQuestion("questions.json");
-            if (themeChoose.getSelectedItem().equals("SPORT"))
-                settings.setFileQuestion("SPORT.json");
+            if (themeChoose.getSelectedItem().equals("JAVA-1"))
+                settings.setFileQuestion("JAVA-1.json");
             // сохраняем в файл наш выбор темы
         }
         if (e.getSource() == questionsCountChoose) {
